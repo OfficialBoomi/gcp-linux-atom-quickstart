@@ -16,10 +16,11 @@ resources:
       name: 'gcr.io/cloud-builders/git'
       args:
       - clone
-      - 'https://github.com/OfficialBoomi/gcp-linux-atom-quickstart.git'
-      - quick_start 
+      - 'https://github.com/MishalYadav/gcp-linux-atom-quickstart.git'
+      - quick_start    
     
-     - id: create_zip
+    
+    - id: create_zip
       name: 'gcr.io/cloud-builders/gsutil'
       entrypoint: 'bash'
       args:

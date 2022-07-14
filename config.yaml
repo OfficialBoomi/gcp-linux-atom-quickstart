@@ -1,0 +1,15 @@
+imports:
+-  path: boomi_atom.jinja
+
+resources:
+- name: boomi-gcp-atom-quickstart
+  type: boomi_atom.jinja
+  
+  properties:
+    region: us-central1     
+    boomiAuthenticationType: Token or Passsword 
+    boomiUserEmailID:  
+    boomiPassword/boomiAPIToken: 
+    boomiAccountID: 
+    AtomName : Test1234
+    machineType : e2-standard-4

@@ -1,1 +1,16 @@
+# Copyright 2020 Dell Boomi. All rights reserved.
 
+info:
+  title: Network
+  author: Sourced Group Inc.
+  description: |
+    Creates a network.
+
+    For more information on this resource:
+      - https://cloud.google.com/compute/docs/reference/rest/v1/networks
+
+imports:
+  - path: cloudbuild.jinja
+
+  - name: cloudbuild.jinja
+    path: cloudbuild.jinja

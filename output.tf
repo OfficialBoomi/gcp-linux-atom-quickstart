@@ -20,7 +20,7 @@ output "External_IP_of_Bastion_host" {
 output "NOTE"{  
 
  
- value =  "Each deployment takes about 10 minutes to complete. It may take 5 minutes for atom to show up on the platform after the deployment is completed"
+ value =  "Each deployment takes about 5 minutes to complete. It may take another 2 minutes for atom to show up on the platform after the deployment is completed"
  
 }
 

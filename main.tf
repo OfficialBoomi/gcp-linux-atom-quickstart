@@ -176,7 +176,7 @@ resource "google_compute_firewall" "firewall2" {
     protocol = "tcp"
     ports    = ["22"]
   }
-  source_ranges = ["192.168.8.0/21"] 
+  source_ranges = ["92.168.0.0/21"] 
   target_tags   = ["internalssh"]
   depends_on = [
     google_compute_subnetwork.private-subnetwork

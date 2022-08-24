@@ -146,7 +146,7 @@ data "template_file" "default" {
     boomiUserEmailID="${var.boomiUserEmailID}"
     boomiPasswordORboomiAPIToken = "${var.boomiPasswordORboomiAPIToken}"
     boomiAccountID="${var.boomiAccountID}"
-    AtomName= "${var.atomName}"  
+    atomName= "${var.atomName}"  
     deploymentName="${var.deploymentName}" 
 
   }

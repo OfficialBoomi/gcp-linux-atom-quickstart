@@ -1,4 +1,4 @@
-variable ProjectID{
+variable projectID{
     type= string      
  }
 
@@ -12,10 +12,9 @@ variable zone{
     default ="us-central1-a"   
  }
 
-variable DeploymentName{
+variable deploymentName{
     type= string  
-   
- }
+    }
   
 variable boomiAuthenticationType{ 
     type= string
@@ -35,7 +34,7 @@ variable boomiAccountID{
     type= string
  }    
 
-variable AtomName{
+variable atomName{
     type= string    
  }
 

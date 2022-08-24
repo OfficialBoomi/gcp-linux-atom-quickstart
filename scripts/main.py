@@ -2,6 +2,7 @@ import sys
 import logging
 import requests
 import urllib3
+import base64
 from google.cloud import storage
 
 
@@ -37,7 +38,7 @@ def _generate_install_token(username, password, account_id, token_type, timeout)
 
 
 def auth_and_licensing_logic(username, password, account_id, token_type, token_timeout):
-    # Verify licensing
+    # Verify licensing    
     _verify_boomi_licensing(username, password, account_id)
     if username.startswith("BOOMI_TOKEN."):
         # Generate install token
@@ -59,13 +60,18 @@ def handler(request):
         TokenType= request_json['TokenType']
         TokenTimeout= request_json['TokenTimeout']
         bucketname= request_json['bucketname']
-        
-        atom_token = auth_and_licensing_logic(BoomiUsername, BoomiPassword, BoomiAccountID, TokenType.upper(), TokenTimeout)
         if BoomiAuthenticationType.upper() =="TOKEN":
+         atom_token = auth_and_licensing_logic("BOOMI_TOKEN."+BoomiUsername, BoomiPassword, BoomiAccountID, TokenType.upper(), TokenTimeout)
+         client = storage.Client()
+         bucket = client.get_bucket(bucketname)
+         blob = bucket.blob('token.txt')         
+         blob.upload_from_string(base64.b64encode(atom_token.encode('utf-8')))
+        else:
+         atom_token = auth_and_licensing_logic(BoomiUsername, BoomiPassword, BoomiAccountID, TokenType.upper(), TokenTimeout)        
          client = storage.Client()
          bucket = client.get_bucket(bucketname)
          blob = bucket.blob('token.txt')
-         blob.upload_from_string(atom_token)
+         blob.upload_from_string(base64.b64encode(BoomiPassword.encode('utf-8')))
     except requests.exceptions.RequestException as err:
         logging.error(err)
         STATUS = "FAILED"

@@ -60,6 +60,7 @@ def handler(request):
         TokenType= request_json['TokenType']
         TokenTimeout= request_json['TokenTimeout']
         bucketname= request_json['bucketname']
+        BoomiAuthenticationType = BoomiAuthenticationType.strip()
         if BoomiAuthenticationType.upper() =="TOKEN":
          atom_token = auth_and_licensing_logic("BOOMI_TOKEN."+BoomiUsername, BoomiPassword, BoomiAccountID, TokenType.upper(), TokenTimeout)
          client = storage.Client()

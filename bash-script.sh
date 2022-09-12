@@ -14,7 +14,7 @@ sudo yum -y install wget
 
 wget -P /usr/local/boomi https://platform.boomi.com/atom/atom_install64.sh && chmod +x /usr/local/boomi/atom_install64.sh
 
-AuthType=${boomiAuthenticationType}
+AuthType=$(echo "${boomiAuthenticationType}" | xargs)
 AuthType=$(echo "$AuthType" | tr '[:lower:]' '[:upper:]')
 if [ $AuthType = TOKEN ]
 then
